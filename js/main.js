@@ -100,6 +100,8 @@ class Otta {
     let currentImages = [];
     let currentIndex = 0;
     let currentTitle = 'Galleria progetto';
+    let closeTimeout = null;
+    let closeListener = null;
 
     const setIndex = (nextIndex) => {
       if (!currentImages.length) return;
@@ -139,15 +141,44 @@ class Otta {
 
       setIndex(0);
 
+      if (closeTimeout) {
+        window.clearTimeout(closeTimeout);
+        closeTimeout = null;
+      }
+      if (closeListener) {
+        modal.removeEventListener('transitionend', closeListener);
+        closeListener = null;
+      }
+
       modal.removeAttribute('hidden');
-      modal.classList.add('is-open');
+      modal.classList.remove('is-closing');
+      window.requestAnimationFrame(() => modal.classList.add('is-open'));
       document.body.classList.add('gallery-open');
     };
 
     const closeModal = () => {
-      modal.setAttribute('hidden', '');
+      if (modal.hasAttribute('hidden') || modal.classList.contains('is-closing')) return;
       modal.classList.remove('is-open');
+      modal.classList.add('is-closing');
       document.body.classList.remove('gallery-open');
+
+      const finalizeClose = () => {
+        if (modal.hasAttribute('hidden')) return;
+        modal.setAttribute('hidden', '');
+        modal.classList.remove('is-closing');
+        if (closeListener) {
+          modal.removeEventListener('transitionend', closeListener);
+          closeListener = null;
+        }
+      };
+
+      closeListener = (event) => {
+        if (event.target !== modal) return;
+        finalizeClose();
+      };
+
+      modal.addEventListener('transitionend', closeListener);
+      closeTimeout = window.setTimeout(finalizeClose, 320);
     };
 
     const handleTriggerClick = (event) => {

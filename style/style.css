@@ -723,9 +723,22 @@ section {
   justify-content: center;
   padding: 24px;
   z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease;
 
   &[hidden] {
     display: none;
+  }
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &.is-closing {
+    opacity: 0;
+    pointer-events: none;
   }
 }
 
@@ -739,8 +752,28 @@ section {
   flex-direction: column;
   gap: 16px;
   box-shadow: none;
-      height: 95vh;
+  height: 95vh;
+  transform: translateY(18px) scale(0.98);
+  opacity: 0;
+  transition: transform 260ms ease, opacity 260ms ease;
+  will-change: transform, opacity;
+}
 
+.gallery-modal.is-open .gallery-dialog {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.gallery-modal.is-closing .gallery-dialog {
+  transform: translateY(10px) scale(0.98);
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-modal,
+  .gallery-dialog {
+    transition: none;
+  }
 }
 
 .gallery-footer {
