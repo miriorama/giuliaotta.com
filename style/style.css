@@ -108,6 +108,7 @@ footer {
       color: var(--pink);
       margin-bottom: 14px;
       text-align: left;
+      margin-left: 8px;
     }
 }
 
