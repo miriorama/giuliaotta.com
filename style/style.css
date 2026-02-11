@@ -771,7 +771,8 @@ section {
 
 @media (prefers-reduced-motion: reduce) {
   .gallery-modal,
-  .gallery-dialog {
+  .gallery-dialog,
+  .gallery-main {
     transition: none;
   }
 }
@@ -824,12 +825,18 @@ section {
   gap: 12px;
   flex: 1;
   position: relative;
-      background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-        filter: drop-shadow(var(--shadow));
-        margin: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(var(--shadow));
+  margin: 40px;
+  transition: transform 160ms ease;
+  will-change: opacity, transform;
+}
 
+.gallery-main.is-transitioning {
+  opacity: 1;
+  transform: translateX(2px);
 }
 
 .contact-grid {

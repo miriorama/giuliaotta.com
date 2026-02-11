@@ -102,12 +102,22 @@ class Otta {
     let currentTitle = 'Galleria progetto';
     let closeTimeout = null;
     let closeListener = null;
+    let imageTimeout = null;
 
     const setIndex = (nextIndex) => {
       if (!currentImages.length) return;
       currentIndex = (nextIndex + currentImages.length) % currentImages.length;
       if (image) {
-        image.style.backgroundImage ='url("'+currentImages[currentIndex]+'")';
+        if (imageTimeout) {
+          window.clearTimeout(imageTimeout);
+          imageTimeout = null;
+        }
+
+        image.classList.add('is-transitioning');
+        imageTimeout = window.setTimeout(() => {
+          image.style.backgroundImage ='url("'+currentImages[currentIndex]+'")';
+          image.classList.remove('is-transitioning');
+        }, 90);
         image.alt = currentTitle;
       }
     };
