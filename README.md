@@ -123,6 +123,7 @@ EDUCAZIONE
 2019 Diploma Accademico di primo livello in Pittura presso l’Accademia Albertina di Belle Arti di Torino
 
 MOSTRE E PREMI D’ARTE
+2026 mostra collettiva gli scappatidicasa al museo Virgola, Bologna in occasione di Arte Fiera
 2025 mostra collettiva Arte Laguna Prize Shanghai Exhibition, EKA Tianwu, Shanghai
 2025 mostra personale Esplorazioni Urbane a Mondovì
 2024 finalsta del premio Illustraciencia e mostra collettiva al Museo della Scienza di Madrid
@@ -146,3 +147,13 @@ ART EXHIBITIONS AND AWARDS
 
 PUBLICATIONS
 2025 – Scaranocchio by Cristiano Ghibaudo and Giulia Otta, Effatà Editrice
+
+### Modifiche nuove
+- 2026 mostra collettiva gli scappatidicasa al museo Virgola, Bologna in occasione di Arte Fiera
+- ordinamento
+- le foto sono di william fazzari nel footer
+- nuovo testo esplorazioni urbane, togliere inglese
+- esplorazioni ubrani: aprire come collaborazioni (provare prima a tagliare img)
+- togliere la pianta e i due cuori
+- scaranocchio tagliare
+- ruota : togliere cerchio nero su img
