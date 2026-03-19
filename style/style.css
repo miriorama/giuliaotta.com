@@ -16,6 +16,15 @@
   font-display: swap;
 }
 
+/* space-grotesk-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/space-grotesk-v22-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 :root {
   color-scheme: light;
   --bg: #f7f1e8;
@@ -505,15 +514,9 @@ main {
   background: var(--bg);
   border-radius: 100%;
   overflow: hidden;
-  cursor: grab;
-  touch-action: none;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &:active {
-    cursor: grabbing;
-  }
 }
 
 .ruota-image {
@@ -784,6 +787,8 @@ main {
 
 .gallery-desc {
   font-size: 1rem;
+  max-height: 300px;
+  overflow-y: scroll;
 }
 
 .gallery-main {
@@ -1005,6 +1010,35 @@ main {
       font-size: 1.2rem;
     }
   }
+
+  .gallery-dialog{
+    gap: 0;
+  }
+
+  .gallery-main{
+    margin: 24px;
+  }
+
+  .gallery-footer{
+    padding: 0 24px 24px;
+  }
+
+  .gallery-title-container{
+    flex-wrap: wrap;
+
+    .gallery-title{
+      font-size: 1.2rem;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      margin-right: 0;
+      width: 100%;
+      order: 10;
+    }
+  }
+  .gallery-desc{
+      max-height: 20vh;
+  }
+
 
     .footer {
 
